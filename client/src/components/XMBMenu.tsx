@@ -562,7 +562,7 @@ export default function XMBMenu({
 
   return (
     <div
-      className={`absolute inset-0 flex flex-col justify-center overflow-hidden pb-12 sm:pb-11 ${helpOpen ? "pt-[6.5rem] sm:pt-24" : "pt-10 sm:pt-9"}`}
+      className={`absolute inset-0 flex flex-col justify-center overflow-hidden pb-10 sm:pb-11 ${helpOpen ? "pt-[6.8rem] sm:pt-24" : "pt-9 sm:pt-9"}`}
     >
       <AnimatePresence>
         {showGameFullscreen && activeItem && (
@@ -712,7 +712,7 @@ export default function XMBMenu({
       </div>
 
       {/* Category Row (horizontal, scroll on narrow screens) */}
-      <div className="relative z-10 mb-2 sm:mb-3 -mx-1 px-1 overflow-x-auto overflow-y-visible [scrollbar-width:thin] pb-1">
+      <div className="relative z-10 mb-1.5 sm:mb-3 -mx-1 px-1 overflow-x-auto overflow-y-visible [scrollbar-width:thin] pb-1">
         <motion.div
           className="flex items-end justify-center gap-4 sm:gap-7 md:gap-9 px-2 w-max min-w-full sm:w-auto sm:min-w-0 sm:mx-auto"
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
@@ -729,7 +729,7 @@ export default function XMBMenu({
       </div>
 
       {/* Divider + breadcrumb (list mode) */}
-      <div className="relative z-10 mx-5 sm:mx-8 mb-2 sm:mb-2.5 space-y-2">
+      <div className="relative z-10 mx-3 sm:mx-8 mb-1.5 sm:mb-2.5 space-y-1.5 sm:space-y-2">
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         {isItemView && activeItem && (
           <motion.div
@@ -761,10 +761,10 @@ export default function XMBMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.15 }}
-            className="relative z-10 flex-1 min-h-0 px-3 sm:px-5 flex gap-3 sm:gap-4 min-h-[7rem]"
+            className="relative z-10 flex-1 min-h-0 px-2.5 sm:px-5 flex flex-col sm:flex-row gap-2.5 sm:gap-4 min-h-[7rem]"
           >
             {/* Items list (left) */}
-            <div className="w-[38%] sm:w-[34%] flex flex-col gap-1 overflow-y-auto pr-1 [scrollbar-width:thin]">
+            <div className="w-full sm:w-[34%] max-h-[34%] sm:max-h-none flex flex-col gap-1 overflow-y-auto pr-1 [scrollbar-width:thin]">
               {activeCategory.items.map((item, i) => (
                 <div
                   key={item.id}
@@ -782,7 +782,7 @@ export default function XMBMenu({
             </div>
 
             {/* Detail panel (right) */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 min-h-0">
               <AnimatePresence mode="wait">
                 <DetailPanel
                   key={activeItem.id}
@@ -925,7 +925,7 @@ export default function XMBMenu({
 
       {/* Bottom: one calm hint row */}
       <div
-        className="absolute bottom-2 sm:bottom-2.5 left-3 sm:left-4 right-3 sm:right-4 z-20 flex flex-wrap items-center justify-center sm:justify-between gap-x-2 gap-y-1 text-[8px] sm:text-[9px] text-white/26"
+        className="absolute bottom-2 sm:bottom-2.5 left-3 sm:left-4 right-3 sm:right-4 z-20 hidden xs:flex flex-wrap items-center justify-center sm:justify-between gap-x-2 gap-y-1 text-[8px] sm:text-[9px] text-white/26"
         style={{ fontFamily: "'Rajdhani', sans-serif" }}
       >
         <span className="tabular-nums whitespace-nowrap">

@@ -125,7 +125,7 @@ export default function PSPShell({
   return (
     <div className="relative w-full max-w-[1120px] mx-auto select-none">
       <div
-        className="relative rounded-[2.1rem] sm:rounded-[3.2rem] p-[3px] sm:p-[4px]"
+        className="relative rounded-[1.4rem] sm:rounded-[3.2rem] p-[2px] sm:p-[4px]"
         style={{
           background: nightMode
             ? "linear-gradient(165deg, #6f748a 0%, #4a4f63 33%, #313446 70%, #26293b 100%)"
@@ -133,14 +133,14 @@ export default function PSPShell({
         }}
       >
         <div
-          className="relative rounded-[2rem] sm:rounded-[3rem] p-3 sm:p-4 md:p-5"
+          className="relative rounded-[1.2rem] sm:rounded-[3rem] p-2.5 sm:p-4 md:p-5"
           style={{
             background: nightMode
               ? "linear-gradient(168deg, #1c2240 0%, #151a33 40%, #0d1022 100%)"
               : "linear-gradient(168deg, #282b4a 0%, #1c1f3c 32%, #14162f 66%, #0e1021 100%)",
           }}
         >
-          <div className="flex items-center justify-between px-1 sm:px-2 mb-3 gap-2">
+          <div className="flex items-center justify-between px-0.5 sm:px-2 mb-2.5 sm:mb-3 gap-1.5 sm:gap-2">
             <div className="flex items-center gap-2">
               <span className="text-[10px] tracking-[0.2em] uppercase text-white/25 hidden sm:inline">PSP</span>
               <motion.div
@@ -152,11 +152,11 @@ export default function PSPShell({
               <span className="text-[8px] text-white/20 hidden sm:inline">{devicePowered ? (booted ? "Ready" : "Starting...") : "Standby"}</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <button type="button" onClick={onOpenSpaceExplore} className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-[#6d9dff]/35 bg-[#6d9dff]/10">
+              <button type="button" onClick={onOpenSpaceExplore} className="flex items-center gap-1 px-2 py-1 rounded-lg border border-[#6d9dff]/35 bg-[#6d9dff]/10 touch-manipulation">
                 <Orbit className="w-3.5 h-3.5 text-[#9fc0ff]" />
                 <span className="text-[9px] uppercase text-[#b7ceff] hidden sm:inline">Space</span>
               </button>
-              <button type="button" onClick={onPowerPress} className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-white/10 bg-white/[0.04]">
+              <button type="button" onClick={onPowerPress} className="flex items-center gap-1 px-2 py-1 rounded-lg border border-white/10 bg-white/[0.04] touch-manipulation">
                 <Power className="w-3.5 h-3.5 text-white/50" />
                 <span className="text-[9px] uppercase text-white/45 hidden sm:inline">Power</span>
               </button>
@@ -193,6 +193,57 @@ export default function PSPShell({
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-0.5"><ActionButton shape="circle" onClick={onButtonO} color="#ff7a7a" /></div>
               </div>
             </div>
+          </div>
+
+          {/* Mobile touch controls */}
+          <div className="sm:hidden mt-2.5 flex items-center justify-center gap-1.5 flex-wrap">
+            <motion.button
+              type="button"
+              whileTap={{ scale: 0.9 }}
+              onClick={onPowerPress}
+              className="w-10 h-10 rounded-full flex items-center justify-center border border-white/15 bg-white/[0.06] text-amber-200/80 touch-manipulation"
+              aria-label="Power"
+            >
+              <Power className="w-4 h-4" strokeWidth={2} />
+            </motion.button>
+            <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={onDpadLeft} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/45 touch-manipulation" aria-label="Left">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor" className="-rotate-90">
+                <path d="M7 2.5L11.5 9.5H2.5L7 2.5Z" />
+              </svg>
+            </motion.button>
+            <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={onDpadUp} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/45 touch-manipulation" aria-label="Up">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor">
+                <path d="M7 2.5L11.5 9.5H2.5L7 2.5Z" />
+              </svg>
+            </motion.button>
+            <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={onDpadDown} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/45 touch-manipulation" aria-label="Down">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor" className="rotate-180">
+                <path d="M7 2.5L11.5 9.5H2.5L7 2.5Z" />
+              </svg>
+            </motion.button>
+            <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={onDpadRight} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/45 touch-manipulation" aria-label="Right">
+              <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor" className="rotate-90">
+                <path d="M7 2.5L11.5 9.5H2.5L7 2.5Z" />
+              </svg>
+            </motion.button>
+            <motion.button
+              type="button"
+              whileTap={{ scale: 0.9 }}
+              onClick={onButtonX}
+              className="w-10 h-10 rounded-full flex items-center justify-center text-[#6d9dff] border border-[#6d9dff]/30 bg-[#6d9dff]/10 touch-manipulation"
+              aria-label="Confirm"
+            >
+              <FaceGlyph shape="cross" />
+            </motion.button>
+            <motion.button
+              type="button"
+              whileTap={{ scale: 0.9 }}
+              onClick={onButtonO}
+              className="w-10 h-10 rounded-full flex items-center justify-center text-[#ff7a7a] border border-[#ff7a7a]/30 bg-[#ff7a7a]/10 touch-manipulation"
+              aria-label="Back"
+            >
+              <FaceGlyph shape="circle" />
+            </motion.button>
           </div>
 
           <div className="mt-2 text-center">

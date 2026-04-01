@@ -436,7 +436,7 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center p-3 sm:p-6 md:p-8 relative overflow-hidden ${simpleLayout ? "items-start py-0 px-0" : ""}`}
+      className={`min-h-screen flex items-center justify-center p-2 sm:p-6 md:p-8 relative overflow-hidden ${simpleLayout ? "items-start py-0 px-0" : ""}`}
       style={{
         background: "linear-gradient(145deg, #06060c 0%, #0a0a14 45%, #050508 100%)",
       }}
