@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { WAVE_BACKGROUNDS } from "@/lib/data";
 
-const LOGO_PATH = "/__psp__/logo.png";
+const LOGO_PATH = "/__psp__/logo.svg";
 
 export default function PreloadAssets() {
   useEffect(() => {
