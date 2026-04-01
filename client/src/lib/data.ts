@@ -93,7 +93,7 @@ export const categories: Category[] = [
         title: "Resume — UMD",
         subtitle: "Portfolio disc · PDF download",
         description:
-          "A minimal placeholder PDF ships at `client/public/resume.pdf` so the download works out of the box—replace that file with your final résumé.",
+          "Download Mohamed Sawan’s résumé PDF from this portfolio.",
         link: OWNER.resumePdfUrl,
       },
     ],
@@ -291,7 +291,7 @@ export const categories: Category[] = [
         title: "UMD — Résumé (PDF)",
         subtitle: "Download portfolio résumé",
         description:
-          "Same file as Profile → Resume — UMD. Replace `client/public/resume.pdf` with your own PDF anytime.",
+          "Same file as Profile → Resume — UMD, provided here for quick access.",
         link: OWNER.resumePdfUrl,
       },
     ],
